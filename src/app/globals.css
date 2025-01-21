@@ -2,20 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Oval Scrolling */
+@keyframes oval-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(0px); /* Adjust the width of the oval */
+    }
+    100% {
+      transform: translateX(0);
+    }
   }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
+  
+  .animate-oval-scroll {
+    animation: oval-scroll 10s linear infinite;
+    display: flex;
+    gap: 0rem; /* space between the cards */
+  }
+  
