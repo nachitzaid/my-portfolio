@@ -2,22 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Oval Scrolling */
-@keyframes oval-scroll {
-    0% {
-      transform: translateX(0);
-    }
-    50% {
-      transform: translateX(0px); /* Adjust the width of the oval */
-    }
-    100% {
-      transform: translateX(0);
-    }
-  }
-  
-  .animate-oval-scroll {
-    animation: oval-scroll 10s linear infinite;
-    display: flex;
-    gap: 0rem; /* space between the cards */
-  }
-  
+/* Oval Scrolling Animation */
+
+
+
+/* Featured Projects Section Styles */
+.projects-header {
+  @apply text-center mb-12 relative;
+}
+
+
+.projects-title {
+  @apply text-red-600 text-3xl font-bold mb-4;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.projects-description {
+  @apply text-gray-600 dark:text-gray-300 max-w-2xl mx-auto;
+  line-height: 1.6;
+}
