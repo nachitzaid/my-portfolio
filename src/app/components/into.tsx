@@ -6,7 +6,7 @@ export default function Intro() {
       <div className="grid md:grid-cols-2 gap-12 items-center">
         
         <div className="space-y-8">
-          <h1 className="text-4xl font-bold mb-4">Zaid NACHIT</h1>
+          <h2 className="text-4xl font-bold mb-4">Zaid NACHIT</h2>
           <p className="text-xl text-gray-600 mb-8">Web Developer & Data Scientist</p>
           <p className="text-gray-400 text-lg max-w-xl">
             I am a versatile professional with expertise in web development, data science, and design. With a strong foundation in Decision Informatics and Data Science, I specialize in building elegant and functional websites while leveraging advanced data analysis techniques to solve complex problems and extract valuable insights.

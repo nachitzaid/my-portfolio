@@ -1,23 +1,173 @@
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Oval Scrolling Animation */
-
-
-
-/* Featured Projects Section Styles */
-.projects-header {
-  @apply text-center mb-12 relative;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-
-.projects-title {
-  @apply text-red-600 text-3xl font-bold mb-4;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+html, body {
+  width: 100%;
+  height: 500vh;
+  font-family: "Instrument Serif", serif;
+  background-color: #000;  /* Fond noir pour un meilleur contraste */
 }
 
-.projects-description {
-  @apply text-gray-600 dark:text-gray-300 max-w-2xl mx-auto;
-  line-height: 1.6;
+/* Container principal */
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+/* Section */
+section {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;  /* Empêche le débordement pendant l'animation */
+}
+
+h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: aliceblue;
+  text-align: center;
+  font-size: 5vw;
+  font-weight: lighter;
+  line-height: 100%;
+}
+
+/* Section des cartes */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+/* Cartes avec effet 3D */
+.card {
+  width: 240px;
+  height: 360px;
+  perspective: 1200px; /* Plus de profondeur */
+  cursor: pointer;
+  transform-style: preserve-3d;
+  will-change: transform;  /* Optimisation des performances */
+}
+
+.card-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: floating 3s infinite ease-in-out;
+}
+
+/* Effet flip */
+.flip-card-inner {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Faces de la carte */
+.flip-card-front,
+.flip-card-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  border-radius: 0.8em;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+              0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Face avant */
+.flip-card-front {
+  background-color: #1a1a1a;  /* Fond sombre */
+}
+
+/* Face arrière */
+.flip-card-back {
+  background-color: aliceblue;
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* Animation de flip */
+.card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Animation de flottement */
+@keyframes floating {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Media queries pour la réactivité */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 8vw;
+  }
+
+  .card {
+    width: 200px;
+    height: 300px;
+  }
+}
+/* Add these to your globals.css */
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.project-card {
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.project-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-back {
+  background: white;
+  color: black;
+}
+
+/* Enhance the hover effect */
+.project-card:hover {
+  transform: translateY(-10px);
+}
+
+/* Smooth transition for stacking */
+.project-card {
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
